@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <title>Ferry Friend</title>
+</head>
+
+<body>
+    <section id="center-display">
+        <section id="date-and-route">
+            <p id="disclaimer">Disclaimer: This app is in development and is not associated with the Washington state
+                Department of
+                Transportation. Please use: <a href>https://wsdot.com/ferries/schedule/default.aspx</a>
+            </p>
+            <table>
+                <tr>
+                    <td id="selecttd">
+                        <p id="selectadate">Select a date:</p>
+                    </td>
+                    <td>
+                        <input type="text" id="date-picker">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="routes-menu" id="choosearoute">Choose a route:</label>
+                    </td>
+                    <td>
+                        <select name="routes-menu" id="routes-menu">
+                            <option disabled selected hidden>Please choose a route</option>
+                            <option>Bainbridge to Seattle</option>
+                            <option>Bremerton to Seattle</option>
+                            <option>Edmonds to Kingston</option>
+                            <option>Fauntleroy to Southworth</option>
+                            <option>Kingston to Edmonds</option>
+                            <option>Seattle to Bainbridge</option>
+                            <option>Seattle to Bremerton</option>
+                            <option>Southworth to Fauntleroy</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <h1 id="main-header" class="hidden">Ferry Friend</h1>
+        <img id="ferry-friend-logo" src="images/ferry-friend.png" class="hidden">
+        <h2 id="date-render" class="hidden"></h2>
+        <ul id="ferry-times" class="hidden"></ul>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>

@@ -78,7 +78,7 @@ export default async (app) => {
 
   // RESTful APIs
   app.get('/', (req, res) => {
-    res.render('index', { title: 'My HTML Page' });
+    res.render('index')
   })
   // app.get('/api/rentals', apiAllRentals);
   // app.patch('/api/rental/:id', uploadStrategy, apiEditRental);
