@@ -4,22 +4,22 @@ import path from 'path';
 import bodyParser from 'body-parser';
 import methodOverride from 'method-override';
 import createError from 'http-errors';
-import multer from 'multer';
+// import multer from 'multer';
 import { fileURLToPath } from 'url';
-import {
-  viewAllRentals,
-  viewDeleteRental,
-  viewAddNewRental,
-  viewEditRental,
-  apiAllRentals,
-  apiAddNewRental,
-  apiDeleteRental,
-  apiEditRental,
-} from '../controller/rentals.controller.js';
-import { connectToDatabase } from '../model/rental.model.js';
+// import {
+//   viewAllRentals,
+//   viewDeleteRental,
+//   viewAddNewRental,
+//   viewEditRental,
+//   apiAllRentals,
+//   apiAddNewRental,
+//   apiDeleteRental,
+//   apiEditRental,
+// } from '../controller/rentals.controller.js';
+// import { connectToDatabase } from '../model/rental.model.js';
 
-const inMemoryStorage = multer.memoryStorage();
-const uploadStrategy = multer({ storage: inMemoryStorage }).single('image');
+// const inMemoryStorage = multer.memoryStorage();
+// const uploadStrategy = multer({ storage: inMemoryStorage }).single('image');
 
 // get root directory for paths
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -71,23 +71,26 @@ export default async (app) => {
   app.use(checkTrailingSlash);
 
   // EJS Views
-  app.get('/', viewAllRentals);
-  app.get('/rental/edit/:id', viewEditRental);
-  app.get('/rental/delete/:id', viewDeleteRental);
-  app.get('/rental/new', viewAddNewRental);
+  // app.get('/', viewAllRentals);
+  // app.get('/rental/edit/:id', viewEditRental);
+  // app.get('/rental/delete/:id', viewDeleteRental);
+  // app.get('/rental/new', viewAddNewRental);
 
   // RESTful APIs
-  app.get('/api/rentals', apiAllRentals);
-  app.patch('/api/rental/:id', uploadStrategy, apiEditRental);
-  app.delete('/api/rental/:id', apiDeleteRental);
-  app.post('/api/rental', uploadStrategy, apiAddNewRental);
+  app.get('/', (req, res) => {
+    res.render('index', { title: 'My HTML Page' });
+  })
+  // app.get('/api/rentals', apiAllRentals);
+  // app.patch('/api/rental/:id', uploadStrategy, apiEditRental);
+  // app.delete('/api/rental/:id', apiDeleteRental);
+  // app.post('/api/rental', uploadStrategy, apiAddNewRental);
 
   // Configure error handling for routes
   app.use(on404Error);
   app.use(onRouteErrors);
 
   // Connect to Database
-  await connectToDatabase();
+  // await connectToDatabase();
 
   return app;
 };
