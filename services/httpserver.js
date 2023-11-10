@@ -6,6 +6,7 @@ import methodOverride from 'method-override';
 import createError from 'http-errors';
 // import multer from 'multer';
 import { fileURLToPath } from 'url';
+import api from '../routes/index.js';
 // import {
 //   viewAllRentals,
 //   viewDeleteRental,
@@ -57,6 +58,8 @@ export default async (app) => {
   // Parse JSON
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
+
+  app.use('/api', api);
 
   // Accept PATCH and DELETE verbs
   app.use(methodOverride('_method'));
